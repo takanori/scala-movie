@@ -1,0 +1,5 @@
+.DS_Store
+Thumnail.db
+target/
+project/target
+project/project/target

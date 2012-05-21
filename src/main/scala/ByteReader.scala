@@ -11,32 +11,82 @@ package com.takanori.MovieUtils
 import java.io._
 import java.nio._
 import java.nio.charset.Charset
+//import java.lang.Integer
+//import scala.Byte
 
-class ByteReader() {
+object ByteReader {
 
-  val CP932 = Charset.forName("MS932")
+  object MovieFormat extends Enumeration {
+    val MOV = Value
+    val MP4 = Value
+    val MPV = Value
+    val ThreeGP = Value
+    val Unknown = Value
+  }
 
-  val path = new File("/Users/mbp20120411/scala_files/IMG_0619.MOV")
+  val charset = Charset.forName("MS932")
 
-  val buf = new Array[Byte](path.length.asInstanceOf[Int])
-  val io = new FileInputStream(path)
-  io.read(buf)
-  io.close()
-
-  val bb = ByteBuffer.wrap(buf).order(ByteOrder.LITTLE_ENDIAN)
+  var majorBrand = null
+  var buf: Array[Byte] = null
+  var bb: ByteBuffer = null
+  //var bb: ByteBuffer = ByteBuffer.wrap(buf).order(ByteOrder.LITTLE_ENDIAN)
 
   def pos: Int = bb.position
-
   def isEnd: Boolean = bb.position >= bb.capacity
 
-  def testShow = {
-    println(buf)
-    println(bb)
-    println(io)
+  // bb: ByteBuffer を指定された Array[Byte] に置き換えてから処理する
+  def detectFormat(movieData: Array[Byte]): MovieFormat.Value = {
+    println("detectFormat started===================================")
+
+    bb = ByteBuffer.wrap(movieData).order(ByteOrder.LITTLE_ENDIAN)
+
+    for {i <- 0 to 3} get()
+
+    val ftypBox = getString(4)
+    if (ftypBox != "ftyp") throw new Exception("This file does not have ftyp box!")
+
+    val majorBrandString = getString(4)
+
+    checkMajorBrand(majorBrandString)
+  }
+
+  def test = {
+    val movieFile = new File("/Users/mbp20120411/scala_files/IMG_0467.MOV")
+    buf = new Array[Byte](100)
+    val io = new FileInputStream(movieFile)
+    io.read(buf)
+    io.close()
+
+    val answer = detectFormat(buf)
+    println(answer)
+  }
+
+  /**
+   * iPhoneで撮影すると"qt  "になるようである．
+   *
+   * MPMoviePlayerController が対応するためには
+   * 以下のどちらかの圧縮方式でなければならない．
+   *
+   * H.264 Baseline Profile Level 3.0 video, up to 640 x 480 at 30 fps.
+   * (The Baseline profile does not support B frames.)
+   *
+   * MPEG-4 Part 2 video (Simple Profile)
+   *
+   * */
+  def checkMajorBrand(brand: String) = {
+    brand match {
+      case "mqt " | "qt  " => MovieFormat.MOV
+      case "mp42" | "mmp4" => MovieFormat.MP4
+      // MPV に相当する ftyp のタイプが不明
+      // case "????" => MovieFormat.MPV
+      case "3gp4" | "3gp5" | "3gp6" => MovieFormat.ThreeGP
+
+      case _ => MovieFormat.Unknown
+    }
   }
 
   def getString(length: Int): String = {
-    val ret = new String(buf, bb.position, length, CP932)
+    val ret = new String(buf, bb.position, length, charset)
     bb.position(bb.position() + length)
     ret
   }
@@ -46,13 +96,13 @@ class ByteReader() {
     if (b >= 0) b else b + 256
   }
 
-  def getWORD(): Int = {
+  def getTwoByteAsInt(): Int = {
     val b0 = get()
     val b1 = get()
     (b1 << 8) + b0
   }
 
-  def getDWORD(): Int = {
+  def getFourByteAsInt(): Int = {
     val b0 = get()
     val b1 = get()
     val b2 = get()
@@ -61,4 +111,6 @@ class ByteReader() {
   }
 
   def getFloat(): Float = bb.getFloat()
+  def getChar(): Char = bb.getChar()
+
 }

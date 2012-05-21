@@ -4,13 +4,8 @@ import com.takanori.MovieUtils._
 
 object App {
   def main(args: Array[String]) {
-    println("Hello com.takanori.MovieAnalyzer!")
+    println("main started.")
 
-    byteReader.testShow
+    ByteReader.test
   }
-
-  val byteReader = new ByteReader
-
-
-  
 }

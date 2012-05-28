@@ -11,8 +11,7 @@ package com.takanori.MovieUtils
 import java.io._
 import java.nio._
 import java.nio.charset.Charset
-//import java.lang.Integer
-//import scala.Byte
+
 
 object ByteReader {
 
@@ -29,36 +28,32 @@ object ByteReader {
   var majorBrand = null
   var buf: Array[Byte] = null
   var bb: ByteBuffer = null
-  //var bb: ByteBuffer = ByteBuffer.wrap(buf).order(ByteOrder.LITTLE_ENDIAN)
 
   def pos: Int = bb.position
   def isEnd: Boolean = bb.position >= bb.capacity
 
-  // bb: ByteBuffer を指定された Array[Byte] に置き換えてから処理する
   def detectFormat(movieData: Array[Byte]): MovieFormat.Value = {
-    println("detectFormat started===================================")
 
+    buf = movieData.slice(0, 255)
     bb = ByteBuffer.wrap(movieData).order(ByteOrder.LITTLE_ENDIAN)
 
-    for {i <- 0 to 3} get()
+    for {i <- 0 to 3} {
+      get()
+    }
 
     val ftypBox = getString(4)
-    if (ftypBox != "ftyp") throw new Exception("This file does not have ftyp box!")
+    if (ftypBox != "ftyp") {
+      throw new Exception("This file does not have a ftyp box at the head!")
+    }
 
-    val majorBrandString = getString(4)
+    // TODO: ここの修正は一旦やめて，Apache Tika について調べる
+    val movieFormat: MovieFormat.Value = checkMajorBrand(getString(4))
 
-    checkMajorBrand(majorBrandString)
-  }
+    if (movieFormat != MovieFormat.Unknown) {
+      canPlayIniPhone(movieFormat)
+    }
 
-  def test = {
-    val movieFile = new File("/Users/mbp20120411/scala_files/IMG_0467.MOV")
-    buf = new Array[Byte](100)
-    val io = new FileInputStream(movieFile)
-    io.read(buf)
-    io.close()
-
-    val answer = detectFormat(buf)
-    println(answer)
+    movieFormat
   }
 
   /**
@@ -84,6 +79,21 @@ object ByteReader {
       case _ => MovieFormat.Unknown
     }
   }
+
+  def canPlayIniPhone(value: MovieFormat.Value): Boolean = {
+    value match {
+      case MovieFormat.MOV => {
+        // TODO
+        true
+      }
+      // TODO: ここに他のフォーマットでの処理を書く
+      case _ => {
+        // TODO
+        false
+      }
+    }
+  }
+
 
   def getString(length: Int): String = {
     val ret = new String(buf, bb.position, length, charset)
@@ -111,6 +121,4 @@ object ByteReader {
   }
 
   def getFloat(): Float = bb.getFloat()
-  def getChar(): Char = bb.getChar()
-
 }

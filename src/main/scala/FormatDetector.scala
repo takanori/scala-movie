@@ -14,7 +14,6 @@ import org.apache.tika.sax.BodyContentHandler
 import org.apache.tika.metadata.Metadata
 import org.apache.tika.parser.ParseContext
 
-
 object FormatDetector {
 
   object MovieFormat extends Enumeration {
@@ -44,10 +43,11 @@ object FormatDetector {
 
     println("\n\n--------------")
 
-
     println("Content-Type = " + metadata.get("Content-Type"))
     println("ImageWidth = " + metadata.get("ImageWidth"))
     println("ImageLength = " + metadata.get("ImageLength"))
+
+    println("=====================================")
 
 //    println("Title = " + metadata.get("title"))
 //    println("content = " + handler.toString)

@@ -1,9 +1,5 @@
 /**
- * Created with IntelliJ IDEA.
- * User: mbp20120411
- * Date: 12/05/28
- * Time: 16:18
- * To change this template use File | Settings | File Templates.
+ * FormatDetector.scala
  */
 
 package com.takanori.MovieUtils
@@ -22,7 +18,7 @@ object FormatDetector {
   object MovieFormat extends Enumeration {
     val MOV = Value
     val MP4 = Value
-    val MPV = Value
+    //val MPV = Value
     val ThreeGP = Value
     val Unknown = Value
   }
@@ -37,7 +33,6 @@ object FormatDetector {
 
     try {
       parser.parse(stream, handler, metadata, parseContext)
-      println("-----------------")
     } finally {
       stream.close
     }
@@ -47,21 +42,16 @@ object FormatDetector {
     val imageWidth: String = metadata.get("tiff:ImageWidth")
     val imageLength: String = metadata.get("tiff:ImageLength")
 
+    val movieFormat = contentType match {
+      case "video/quicktime" => MovieFormat.MOV
+      case "application/mp4" | "video/mp4" => MovieFormat.MP4
+      case "3gpp" => MovieFormat.ThreeGP
+      case _ => MovieFormat.Unknown
+    }
 
-
-
-    /////////////////////////////////////////////////////////////////////////////
-    print(metadata)
-    println("\n\n--------------")
-
-    println("Content-Type = " + metadata.get("Content-Type"))
-    println("ImageWidth = " + metadata.get("tiff:ImageWidth"))
-    println("ImageLength = " + metadata.get("tiff:ImageLength"))
-
-    println("=====================================")
-    /////////////////////////////////////////////////////////////////////////////
-
-    (MovieFormat.Unknown, contentLength.toFloat, imageWidth.toInt, imageLength.toInt)
+    (movieFormat, contentLength.toFloat, imageWidth.toInt, imageLength.toInt)
   }
+
+
 
 }

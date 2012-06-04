@@ -53,5 +53,9 @@ object FormatDetector {
   }
 
 
+  // MovieFormatを渡して適切なパーサを返すクラス　トレイトを返す
+  // FormatDetectorでdetectFormatのみを持ったトレイトを作る クラスに変える
+  // ユニットテストを書く
+
 
 }

@@ -8,12 +8,24 @@ object App {
 
   def main(args: Array[String]) {
     testWithFilePath("/Users/mbp20120411/scala_files/movies/IMG_0467.MOV")
+    val data = parseFile(args(0))
+    val format = BriefDetector(data)
+
+    // ここ大事
+    //val parserSelector = new ParserSelector()
+
+    val parser = parserSelector.select(format)
+    val metadata = parser.parse(data)
+
+
 //    testWithFilePath("/Users/mbp20120411/scala_files/movies/mov_h264_aac.mov")
 //    testWithFilePath("/Users/mbp20120411/scala_files/movies/mov_jpeg_aac.mov")
 //    testWithFilePath("/Users/mbp20120411/scala_files/movies/mov_mpeg4_aac.mov")
 //    testWithFilePath("/Users/mbp20120411/scala_files/movies/mp4_h264_aac.mp4")
 //    testWithFilePath("/Users/mbp20120411/scala_files/movies/mp4_mpeg4_aac.mp4")
 //    testWithFilePath("/Users/mbp20120411/scala_files/movies/sample_iPod.m4v")
+
+
   }
 
   def testWithFilePath(path: String) = {

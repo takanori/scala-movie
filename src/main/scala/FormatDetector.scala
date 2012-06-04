@@ -5,6 +5,8 @@
 package com.takanori.MovieUtils
 
 import java.io._
+import java.nio.charset.Charset
+import java.nio.{ByteOrder, ByteBuffer}
 
 //import org.apache.tika.parser.mp4.MP4Parser
 import com.takanori.scalamovie.MP4Parser
@@ -23,9 +25,62 @@ object FormatDetector {
     val Unknown = Value
   }
 
+  class MovieData(movieFormat: MovieFormat.Value, contentLength: Float, imageWidth: Int, imageHeight: Int) {
+    var format = movieFormat
+    var playTime = contentLength;
+    var width = imageWidth;
+    var height = imageHeight;
+  }
+
   val parser = new MP4Parser
 
-  def detectFormat(movieData: Array[Byte]): (MovieFormat.Value, Float, Float, Float) = {
+  def parseFile(path: String) = {
+    val movieFile = new File(path)
+    val movieBuffer = new Array[Byte](movieFile.length().toInt)
+    val inputStream = new FileInputStream(movieFile)
+    inputStream.read(movieBuffer)
+    inputStream.close()
+
+    movieBuffer
+  }
+
+  def checkMajorBrand(brand: String) = {
+    brand match {
+      case "mqt " | "qt  " => MovieFormat.MOV
+      case "mp41" | "mp42" => MovieFormat.MP4
+      case "3ge6" | "3ge7" | "3gg6" | "3gp1" | "3gp2" |
+           "3gp3" | "3gp4" | "3gp5" | "3gp6" | "3gs7" => MovieFormat.ThreeGP
+      case _ => MovieFormat.Unknown
+    }
+  }
+
+  def detectFormat(movieData: Array[Byte]) = {
+    val charset = Charset.forName("MS932")
+    val smallBuffer = movieData.slice(0, 255)
+    val byteBuffer = ByteBuffer.wrap(smallBuffer).order(ByteOrder.LITTLE_ENDIAN)
+
+    def getString(length: Int): String = {
+      val retVal = new String(smallBuffer, byteBuffer.position, length, charset)
+      byteBuffer.position(byteBuffer.position + length)
+      retVal
+    }
+
+    def get(): Int = {
+      val b = byteBuffer.get()
+      if (b >= 0) b else b + 256
+    }
+
+    for {i <- 0 to 3} get()
+
+    val ftypBox = getString(4)
+    if (ftypBox != "ftyp") {
+      throw new Exception("This file does not have a ftyp box at the head.")
+    }
+
+    checkMajorBrand(getString(4))
+  }
+
+  def detectMovieData(movieData: Array[Byte]): MovieData = {
     val stream = new ByteArrayInputStream(movieData)
     val handler = new BodyContentHandler
     val metadata = new Metadata
@@ -38,9 +93,9 @@ object FormatDetector {
     }
 
     val contentType: String = metadata.get("Content-Type")
-    val contentLength: String = metadata.get("Content-Length")
-    val imageWidth: String = metadata.get("tiff:ImageWidth")
-    val imageLength: String = metadata.get("tiff:ImageLength")
+    val contentLength: Float = metadata.get("Content-Length").toFloat
+    val imageWidth: Int = metadata.get("tiff:ImageWidth").toInt
+    val imageLength: Int = metadata.get("tiff:ImageLength").toInt
 
     val movieFormat = contentType match {
       case "video/quicktime" => MovieFormat.MOV
@@ -49,8 +104,32 @@ object FormatDetector {
       case _ => MovieFormat.Unknown
     }
 
-    (movieFormat, contentLength.toFloat, imageWidth.toInt, imageLength.toInt)
+    new MovieData(movieFormat, contentLength, imageWidth, imageLength)
   }
+
+
+
+  def testDetectFormat(path: String): MovieFormat.Value = {
+    val movieBuffer = parseFile(path)
+    detectFormat(movieBuffer)
+  }
+
+  def testDetectMovieData(path: String): MovieData = {
+    val movieBuffer = parseFile(path)
+    detectMovieData(movieBuffer)
+  }
+
+//  def unitTest(path: String) = {
+//    val movieBuffer = parseFile(path)
+//    val format = detectFormat(movieBuffer)
+//
+//    val parserSelector = new ParserSelector()
+//
+//    val parser = parserSelector(format)
+//
+//     val metadata = parser.parse(movieBuffer)
+//
+//  }
 
 
   // MovieFormatを渡して適切なパーサを返すクラス　トレイトを返す

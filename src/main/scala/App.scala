@@ -7,25 +7,23 @@ import com.takanori.MovieUtils._
 object App {
 
   def main(args: Array[String]) {
-    testWithFilePath("/Users/mbp20120411/scala_files/movies/IMG_0467.MOV")
-    val data = parseFile(args(0))
-    val format = BriefDetector(data)
 
-    // ここ大事
-    //val parserSelector = new ParserSelector()
+//    val path = "/Users/mbp20120411/scala_files/movies/IMG_0467.MOV"
+    val path = "/Users/mbp20120411/scala_files/movies/mov_h264_aac.mov"
+//    val path = "/Users/mbp20120411/scala_files/movies/mov_mpeg4_aac.mov"
+//    val path = "/Users/mbp20120411/scala_files/movies/mp4_mpeg4_aac.mp4"
 
-    val parser = parserSelector.select(format)
-    val metadata = parser.parse(data)
+    testWithFilePath(path)
 
+    println("-----------briefDetector test")
 
-//    testWithFilePath("/Users/mbp20120411/scala_files/movies/mov_h264_aac.mov")
-//    testWithFilePath("/Users/mbp20120411/scala_files/movies/mov_jpeg_aac.mov")
-//    testWithFilePath("/Users/mbp20120411/scala_files/movies/mov_mpeg4_aac.mov")
-//    testWithFilePath("/Users/mbp20120411/scala_files/movies/mp4_h264_aac.mp4")
-//    testWithFilePath("/Users/mbp20120411/scala_files/movies/mp4_mpeg4_aac.mp4")
-//    testWithFilePath("/Users/mbp20120411/scala_files/movies/sample_iPod.m4v")
+    testBriefDetector(path)
+  }
 
-
+  def testBriefDetector(path: String) = {
+    val movieBuffer = FormatDetector.parseFile(path)
+    val result = FormatDetector.detectFormat(movieBuffer)
+    println(result)
   }
 
   def testWithFilePath(path: String) = {
@@ -36,12 +34,12 @@ object App {
     io.read(testBuffer)
     io.close()
 
-    val result: (Any, Float, Float, Float) = FormatDetector.detectFormat(testBuffer)
+    val result = FormatDetector.detectMovieData(testBuffer)
 
-    val format = result._1
-    val contentLength = result._2
-    val imageWidth = result._3
-    val imageLength = result._4
+    val format = result.format
+    val contentLength = result.playTime
+    val imageWidth = result.width
+    val imageLength = result.height
 
     println(path)
     println("MovifFormat: " + format)

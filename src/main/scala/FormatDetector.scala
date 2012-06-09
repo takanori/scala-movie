@@ -15,22 +15,22 @@ import org.apache.tika.sax.BodyContentHandler
 import org.apache.tika.metadata.Metadata
 import org.apache.tika.parser.ParseContext
 
-object FormatDetector {
+object MovieFormat extends Enumeration {
+  val MOV = Value
+  val MP4 = Value
+  //val MPV = Value
+  val ThreeGP = Value
+  val Unknown = Value
+}
 
-  object MovieFormat extends Enumeration {
-    val MOV = Value
-    val MP4 = Value
-    //val MPV = Value
-    val ThreeGP = Value
-    val Unknown = Value
-  }
+class MovieInfomation(movieFormat: MovieFormat.Value, contentLength: Float, imageWidth: Int, imageHeight: Int) {
+  var format = movieFormat
+  var playTime = contentLength;
+  var width = imageWidth;
+  var height = imageHeight;
+}
 
-  class MovieData(movieFormat: MovieFormat.Value, contentLength: Float, imageWidth: Int, imageHeight: Int) {
-    var format = movieFormat
-    var playTime = contentLength;
-    var width = imageWidth;
-    var height = imageHeight;
-  }
+class FormatDetector {
 
   val parser = new MP4Parser
 
@@ -80,7 +80,7 @@ object FormatDetector {
     checkMajorBrand(getString(4))
   }
 
-  def detectMovieData(movieData: Array[Byte]): MovieData = {
+  def detectMovieInfomation(movieData: Array[Byte]) = {
     val stream = new ByteArrayInputStream(movieData)
     val handler = new BodyContentHandler
     val metadata = new Metadata
@@ -104,19 +104,23 @@ object FormatDetector {
       case _ => MovieFormat.Unknown
     }
 
-    new MovieData(movieFormat, contentLength, imageWidth, imageLength)
+    new MovieInfomation(movieFormat, contentLength, imageWidth, imageLength)
   }
 
 
-
-  def testDetectFormat(path: String): MovieFormat.Value = {
+  def testDetectFormat(path: String) = {
     val movieBuffer = parseFile(path)
-    detectFormat(movieBuffer)
+    val formatDetected = detectFormat(movieBuffer)
+    println("detectFormat, format: " + formatDetected.toString)
   }
 
-  def testDetectMovieData(path: String): MovieData = {
+  def testDetectMovieInfomation(path: String) = {
     val movieBuffer = parseFile(path)
-    detectMovieData(movieBuffer)
+    val data = detectMovieInfomation(movieBuffer)
+    println("format: " + data.format.toString)
+    println("playTime: " + data.playTime.toString)
+    println("width: " + data.width.toString)
+    println("height: " + data.height.toString)
   }
 
 //  def unitTest(path: String) = {
@@ -130,6 +134,44 @@ object FormatDetector {
 //     val metadata = parser.parse(movieBuffer)
 //
 //  }
+
+  def testParserSelector(path: String) = {
+    val movieBuffer = parseFile(path)
+    val format = detectFormat(movieBuffer)
+
+    val parserSelector = new ParserSelector
+
+    val parser = parserSelector.selectParser(format) match {
+      case Some(f) => f
+      case None => throw new Exception("This format is not supported.")
+    }
+
+    val stream = new ByteArrayInputStream(movieBuffer)
+    val handler = new BodyContentHandler
+    val metadata = new Metadata
+    val parseContext = new ParseContext
+
+    try {
+      parser.parse(stream, handler, metadata, parseContext)
+    } finally {
+      stream.close
+    }
+
+    val contentType: String = metadata.get("Content-Type")
+    val contentLength: Float = metadata.get("Content-Length").toFloat
+    val imageWidth: Int = metadata.get("tiff:ImageWidth").toInt
+    val imageLength: Int = metadata.get("tiff:ImageLength").toInt
+
+    val movieFormat = contentType match {
+      case "video/quicktime" => MovieFormat.MOV
+      case "application/mp4" | "video/mp4" => MovieFormat.MP4
+      case "3gpp" => MovieFormat.ThreeGP
+      case _ => MovieFormat.Unknown
+    }
+
+    new MovieInfomation(movieFormat, contentLength, imageWidth, imageLength)
+
+  }
 
 
   // MovieFormatを渡して適切なパーサを返すクラス　トレイトを返す

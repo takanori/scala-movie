@@ -8,9 +8,16 @@
 
 package com.takanori.MovieUtils
 
+import com.takanori.scalamovie.MP4Parser
+
 class ParserSelector {
-  val memberValue = 12345
-  def testPrint = {
-    println("ParserSelectorObject.testPrint------------")
+
+  def selectParser(format: MovieFormat.Value) = {
+
+    format match {
+      case MovieFormat.MP4 | MovieFormat.MOV | MovieFormat.ThreeGP => Some(new MP4Parser)
+      case _ => None
+    }
+
   }
 }

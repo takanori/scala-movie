@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94e87f2c-71a2-41f5-8520-3c0d79288640" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/App.scala" afterPath="$PROJECT_DIR$/src/main/scala/App.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/FormatDetector.scala" afterPath="$PROJECT_DIR$/src/main/scala/FormatDetector.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/ParserSelector.scala" afterPath="$PROJECT_DIR$/src/main/scala/ParserSelector.scala" />
     </list>
     <ignored path="movieanalyzer.iws" />
@@ -63,10 +60,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="App.scala" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="App.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/App.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="26" selection-start="793" selection-end="793" vertical-scroll-proportion="0.80110496">
+            <state line="29" column="26" selection-start="793" selection-end="793" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#36#52#0" expanded="true" />
               </folding>
@@ -74,11 +71,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ParserSelector.scala" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ParserSelector.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/ParserSelector.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="0" selection-start="309" selection-end="309" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="17" column="0" selection-start="404" selection-end="404" vertical-scroll-proportion="0.3038674">
+              <folding>
+                <element signature="e#192#232#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -86,8 +85,10 @@
       <file leaf-file-name="MP4Parser.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/takanori/scalamovie/MP4Parser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="317" column="7" selection-start="12712" selection-end="12712" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="87" column="26" selection-start="3160" selection-end="3169" vertical-scroll-proportion="113.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -95,9 +96,8 @@
       <file leaf-file-name="FormatDetector.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/FormatDetector.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="151" column="34" selection-start="4342" selection-end="4342" vertical-scroll-proportion="0.0">
+            <state line="143" column="11" selection-start="4027" selection-end="4027" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="n#!!doc" expanded="true" />
                 <element signature="e#66#82#0" expanded="true" />
               </folding>
             </state>
@@ -107,7 +107,7 @@
       <file leaf-file-name="ByteReader.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/ByteReader.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="25" selection-start="1543" selection-end="1552" vertical-scroll-proportion="-14.538462">
+            <state line="65" column="25" selection-start="1543" selection-end="1552" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -130,9 +130,9 @@
         <option value="$PROJECT_DIR$/src/main/java/MP4Parser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/takanori/scalamovie/MP4Parser.java" />
         <option value="$PROJECT_DIR$/src/main/scala/ByteReader.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/ParserSelector.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/FormatDetector.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/App.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/FormatDetector.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/ParserSelector.scala" />
       </list>
     </option>
   </component>
@@ -417,14 +417,14 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
-    <property name="Repository.Attach.Sources" value="false" />
     <property name="FullScreen" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="Downloaded.Files.Path" value="$PROJECT_DIR$/lib" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="dynamic.classpath" value="false" />
+    <property name="Downloaded.Files.Path" value="$PROJECT_DIR$/lib" />
   </component>
   <component name="RunManager" selected="Application.App">
     <configuration default="false" name="App" type="Application" factoryName="Application" temporary="true">
@@ -455,6 +455,19 @@
         <option name="SBT.BeforeRunTask" enabled="false" runInCurrentModule="false" />
       </method>
     </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+        <option name="SBT.BeforeRunTask" enabled="false" runInCurrentModule="false" />
+      </method>
+    </configuration>
     <configuration default="true" type="Specs2RunConfiguration" factoryName="Specs2">
       <module name="" />
       <setting name="path" value="" />
@@ -470,15 +483,21 @@
         <option name="SBT.BeforeRunTask" enabled="false" runInCurrentModule="false" />
       </method>
     </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
         <option name="Maven.BeforeRunTask" enabled="false" />
         <option name="SBT.BeforeRunTask" enabled="false" runInCurrentModule="false" />
       </method>
@@ -508,25 +527,6 @@
       <envs />
       <properties />
       <listeners />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-        <option name="SBT.BeforeRunTask" enabled="false" runInCurrentModule="false" />
-      </method>
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
@@ -635,7 +635,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32974318" sideWeight="0.6932271" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32974318" sideWeight="0.75697213" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2430279" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2430279" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -719,40 +719,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/ByteReader.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="25" selection-start="1543" selection-end="1552" vertical-scroll-proportion="-14.538462">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/ParserSelector.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="309" selection-end="309" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/takanori/scalamovie/MP4Parser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="317" column="7" selection-start="12712" selection-end="12712" vertical-scroll-proportion="0.0">
+        <state line="65" column="25" selection-start="1543" selection-end="1552" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/FormatDetector.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="151" column="34" selection-start="4342" selection-end="4342" vertical-scroll-proportion="0.0">
+        <state line="143" column="11" selection-start="4027" selection-end="4027" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="n#!!doc" expanded="true" />
             <element signature="e#66#82#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/takanori/scalamovie/MP4Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="87" column="26" selection-start="3160" selection-end="3169" vertical-scroll-proportion="113.0">
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/App.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="26" selection-start="793" selection-end="793" vertical-scroll-proportion="0.80110496">
+        <state line="29" column="26" selection-start="793" selection-end="793" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#36#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/ParserSelector.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="404" selection-end="404" vertical-scroll-proportion="0.3038674">
+          <folding>
+            <element signature="e#192#232#0" expanded="true" />
           </folding>
         </state>
       </provider>

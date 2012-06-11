@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="com.googlecode.mp4parser_isoparser_1.0-beta-5">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/com.googlecode.mp4parser/isoparser/jars/isoparser-1.0-beta-5.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.ivy2/cache/com.googlecode.mp4parser/isoparser/docs/isoparser-1.0-beta-5-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/com.googlecode.mp4parser/isoparser/srcs/isoparser-1.0-beta-5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

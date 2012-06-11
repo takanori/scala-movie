@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="org.gagravarr_vorbis-java-core_0.1">
+    <CLASSES />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.gagravarr/vorbis-java-core/docs/vorbis-java-core-0.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.gagravarr/vorbis-java-core/srcs/vorbis-java-core-0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

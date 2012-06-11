@@ -23,7 +23,7 @@ object MovieFormat extends Enumeration {
   val Unknown = Value
 }
 
-class MovieInfomation(movieFormat: MovieFormat.Value, contentLength: Float, imageWidth: Int, imageHeight: Int) {
+class MovieInformation(movieFormat: MovieFormat.Value, contentLength: Float, imageWidth: Int, imageHeight: Int) {
   var format = movieFormat
   var playTime = contentLength;
   var width = imageWidth;
@@ -80,62 +80,7 @@ class FormatDetector {
     checkMajorBrand(getString(4))
   }
 
-  def detectMovieInfomation(movieData: Array[Byte]) = {
-    val stream = new ByteArrayInputStream(movieData)
-    val handler = new BodyContentHandler
-    val metadata = new Metadata
-    val parseContext = new ParseContext
-
-    try {
-      parser.parse(stream, handler, metadata, parseContext)
-    } finally {
-      stream.close
-    }
-
-    val contentType: String = metadata.get("Content-Type")
-    val contentLength: Float = metadata.get("Content-Length").toFloat
-    val imageWidth: Int = metadata.get("tiff:ImageWidth").toInt
-    val imageLength: Int = metadata.get("tiff:ImageLength").toInt
-
-    val movieFormat = contentType match {
-      case "video/quicktime" => MovieFormat.MOV
-      case "application/mp4" | "video/mp4" => MovieFormat.MP4
-      case "3gpp" => MovieFormat.ThreeGP
-      case _ => MovieFormat.Unknown
-    }
-
-    new MovieInfomation(movieFormat, contentLength, imageWidth, imageLength)
-  }
-
-
-  def testDetectFormat(path: String) = {
-    val movieBuffer = parseFile(path)
-    val formatDetected = detectFormat(movieBuffer)
-    println("detectFormat, format: " + formatDetected.toString)
-  }
-
-  def testDetectMovieInfomation(path: String) = {
-    val movieBuffer = parseFile(path)
-    val data = detectMovieInfomation(movieBuffer)
-    println("format: " + data.format.toString)
-    println("playTime: " + data.playTime.toString)
-    println("width: " + data.width.toString)
-    println("height: " + data.height.toString)
-  }
-
-//  def unitTest(path: String) = {
-//    val movieBuffer = parseFile(path)
-//    val format = detectFormat(movieBuffer)
-//
-//    val parserSelector = new ParserSelector()
-//
-//    val parser = parserSelector(format)
-//
-//     val metadata = parser.parse(movieBuffer)
-//
-//  }
-
-  def testParserSelector(path: String) = {
+  def detectMovieInformation(path: String) = {
     val movieBuffer = parseFile(path)
     val format = detectFormat(movieBuffer)
 
@@ -169,14 +114,15 @@ class FormatDetector {
       case _ => MovieFormat.Unknown
     }
 
-    new MovieInfomation(movieFormat, contentLength, imageWidth, imageLength)
-
+    new MovieInformation(movieFormat, contentLength, imageWidth, imageLength)
   }
 
-
-  // MovieFormatを渡して適切なパーサを返すクラス　トレイトを返す
-  // FormatDetectorでdetectFormatのみを持ったトレイトを作る クラスに変える
-  // ユニットテストを書く
-
+  def testDetection(path: String) = {
+    val result = detectMovieInformation(path)
+    println(result.format)
+    println(result.playTime)
+    println(result.width)
+    println(result.height)
+  }
 
 }

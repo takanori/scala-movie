@@ -28,7 +28,7 @@ trait ParserTrait extends AbstractParser {
   def getSupportedTypes(context: ParseContext): Set[MediaType]
 }
 
-class TestParser extends ParserTrait {
+class SampleParser extends ParserTrait {
 
   override def parse(stream: InputStream, handler: ContentHandler, metadata: Metadata,
             parseContext: ParseContext) = {

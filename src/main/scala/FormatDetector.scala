@@ -80,8 +80,7 @@ class FormatDetector {
     checkMajorBrand(getString(4))
   }
 
-  def detectMovieInformation(path: String) = {
-    val movieBuffer = parseFile(path)
+  def detectMovieInformation(movieBuffer: Array[Byte]) = {
     val format = detectFormat(movieBuffer)
 
     val parserSelector = new ParserSelector
@@ -118,7 +117,8 @@ class FormatDetector {
   }
 
   def testDetection(path: String) = {
-    val result = detectMovieInformation(path)
+    val movieBuffer = parseFile(path)
+    val result = detectMovieInformation(movieBuffer)
     println(result.format)
     println(result.playTime)
     println(result.width)

@@ -15,6 +15,10 @@ object App {
 
     val formatDetector = new FormatDetector;
 
+    val movieBuffer = formatDetector.parseFile(path)
+    val format = formatDetector.detectFormat(movieBuffer)
+    println(format)
+
     formatDetector.testDetection(path)
   }
 

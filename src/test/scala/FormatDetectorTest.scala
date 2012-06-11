@@ -21,9 +21,7 @@ class FormatDetectorTest extends Specification {
 //
 //      //formatDetector.detectFormat(Array[Byte](0x11,0x12)) must_== MovieFormat.MP4
 //      formatDetector.detectFormat(movieBuffer).toString == "MOV"
-
-      100 > 0
-
+      "Hello world" must have size(11)
     }
 //    "fail to detect" in{
 //

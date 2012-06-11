@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94e87f2c-71a2-41f5-8520-3c0d79288640" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.sbt" afterPath="$PROJECT_DIR$/build.sbt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/App.scala" afterPath="$PROJECT_DIR$/src/main/scala/App.scala" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/scala/AppSpec.scala" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/FormatDetectorTest.scala" afterPath="$PROJECT_DIR$/src/test/scala/FormatDetectorTest.scala" />
     </list>
     <ignored path="movieanalyzer.iws" />
@@ -74,18 +73,16 @@
       <file leaf-file-name="FormatDetectorTest.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/scala/FormatDetectorTest.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="3" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#0#60#0" expanded="true" />
-              </folding>
+            <state line="1" column="36" selection-start="97" selection-end="97" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.sbt" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="build.sbt" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.sbt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="0" selection-start="24" selection-end="24" vertical-scroll-proportion="0.026595745">
+            <state line="2" column="30" selection-start="55" selection-end="55" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -109,22 +106,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ParserSelector.scala" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ParserSelector.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/ParserSelector.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="0" selection-start="689" selection-end="689" vertical-scroll-proportion="0.0">
+            <state line="31" column="0" selection-start="689" selection-end="689" vertical-scroll-proportion="0.5833333">
               <folding>
                 <element signature="e#193#209#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppSpec.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/AppSpec.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="6" selection-start="71" selection-end="71" vertical-scroll-proportion="0.0">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -168,8 +156,8 @@
         <option value="$PROJECT_DIR$/src/main/scala/FormatDetector.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/ParserSelector.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/App.scala" />
-        <option value="$PROJECT_DIR$/src/test/scala/FormatDetectorTest.scala" />
         <option value="$PROJECT_DIR$/build.sbt" />
+        <option value="$PROJECT_DIR$/src/test/scala/FormatDetectorTest.scala" />
       </list>
     </option>
   </component>
@@ -664,7 +652,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1250" height="874" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -681,7 +669,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32974318" sideWeight="0.6932271" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3294509" sideWeight="0.814077" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18592298" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18592298" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -802,17 +790,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/ParserSelector.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="689" selection-end="689" vertical-scroll-proportion="0.0">
+        <state line="31" column="0" selection-start="689" selection-end="689" vertical-scroll-proportion="0.5833333">
           <folding>
             <element signature="e#193#209#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/AppSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="6" selection-start="71" selection-end="71" vertical-scroll-proportion="0.0">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -823,12 +804,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/FormatDetectorTest.scala">
+    <entry file="file://$PROJECT_DIR$/build.sbt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="3" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#60#0" expanded="true" />
-          </folding>
+        <state line="2" column="30" selection-start="55" selection-end="55" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -839,9 +818,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.sbt">
+    <entry file="file://$PROJECT_DIR$/src/test/scala/FormatDetectorTest.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="24" selection-end="24" vertical-scroll-proportion="0.026595745">
+        <state line="1" column="36" selection-start="97" selection-end="97" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>

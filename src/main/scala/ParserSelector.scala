@@ -32,7 +32,7 @@ class SampleParser extends ParserTrait {
 
   override def parse(stream: InputStream, handler: ContentHandler, metadata: Metadata,
             parseContext: ParseContext) = {
-    println("TestParser.parse")
+    // add code here
   }
 
   override def getSupportedTypes(context: ParseContext): Set[MediaType] = {

@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="94e87f2c-71a2-41f5-8520-3c0d79288640" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.sbt" afterPath="$PROJECT_DIR$/build.sbt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/takanori/scalamovie/MP4Parser.java" afterPath="$PROJECT_DIR$/src/main/java/com/takanori/scalamovie/MP4Parser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/App.scala" afterPath="$PROJECT_DIR$/src/main/scala/App.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/FormatDetector.scala" afterPath="$PROJECT_DIR$/src/main/scala/FormatDetector.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/ParserSelector.scala" afterPath="$PROJECT_DIR$/src/main/scala/ParserSelector.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/FormatDetectorTest.scala" afterPath="$PROJECT_DIR$/src/test/scala/FormatDetectorTest.scala" />
     </list>
     <ignored path="movieanalyzer.iws" />
@@ -68,17 +66,19 @@
       <file leaf-file-name="App.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/App.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="19" selection-start="606" selection-end="606" vertical-scroll-proportion="0.0">
+            <state line="33" column="35" selection-start="1038" selection-end="1038" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FormatDetectorTest.scala" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="FormatDetectorTest.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/scala/FormatDetectorTest.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="5" selection-start="728" selection-end="728" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="20" column="43" selection-start="834" selection-end="834" vertical-scroll-proportion="-1.1757679">
+              <folding>
+                <element signature="e#0#60#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -95,16 +95,18 @@
       <file leaf-file-name="ParserSelector.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/ParserSelector.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="26" selection-start="371" selection-end="371" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="40" column="7" selection-start="1004" selection-end="1004" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#193#209#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MP4Parser.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MP4Parser.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/takanori/scalamovie/MP4Parser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="99" column="49" selection-start="3767" selection-end="3767" vertical-scroll-proportion="0.19821429">
+            <state line="112" column="0" selection-start="4366" selection-end="4366" vertical-scroll-proportion="-15.807693">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#4430#4438#0" expanded="true" />
@@ -116,7 +118,7 @@
       <file leaf-file-name="FormatDetector.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/FormatDetector.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="109" column="38" selection-start="3057" selection-end="3057" vertical-scroll-proportion="0.0">
+            <state line="76" column="26" selection-start="2027" selection-end="2076" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -139,11 +141,11 @@
         <option value="$PROJECT_DIR$/src/main/java/MP4Parser.java" />
         <option value="$PROJECT_DIR$/src/main/scala/ByteReader.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/AppSpec.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/ParserSelector.scala" />
         <option value="$PROJECT_DIR$/build.sbt" />
-        <option value="$PROJECT_DIR$/src/main/scala/App.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/FormatDetector.scala" />
         <option value="$PROJECT_DIR$/src/main/java/com/takanori/scalamovie/MP4Parser.java" />
+        <option value="$PROJECT_DIR$/src/main/scala/ParserSelector.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/FormatDetector.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/App.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/FormatDetectorTest.scala" />
       </list>
     </option>
@@ -751,40 +753,44 @@
         <state line="32" column="31" selection-start="1270" selection-end="1270" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/FormatDetector.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="38" selection-start="3057" selection-end="3057" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/App.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="19" selection-start="606" selection-end="606" vertical-scroll-proportion="0.0">
+        <state line="33" column="35" selection-start="1038" selection-end="1038" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/ParserSelector.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="26" selection-start="371" selection-end="371" vertical-scroll-proportion="0.0">
+        <state line="40" column="7" selection-start="1004" selection-end="1004" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#193#209#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/takanori/scalamovie/MP4Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="112" column="0" selection-start="4366" selection-end="4366" vertical-scroll-proportion="-15.807693">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4430#4438#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/FormatDetector.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="26" selection-start="2027" selection-end="2076" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/FormatDetectorTest.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="5" selection-start="728" selection-end="728" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/takanori/scalamovie/MP4Parser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="49" selection-start="3767" selection-end="3767" vertical-scroll-proportion="0.19821429">
+        <state line="20" column="43" selection-start="834" selection-end="834" vertical-scroll-proportion="-1.1757679">
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4430#4438#0" expanded="true" />
+            <element signature="e#0#60#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,13 +1,9 @@
-import com.takanori.MovieUtils.{MovieFormat, FormatDetector}
-import org.specs2.mutable.{Specification, SpecificationWithJUnit}
-
 /**
- * Created with IntelliJ IDEA.
- * User: mbp20120411
- * Date: 12/06/11
- * Time: 15:20
- * To change this template use File | Settings | File Templates.
+ * FormatDetectorTest.scalas
  */
+
+import com.takanori.MovieUtils.{MovieFormat, FormatDetector}
+import org.specs2.mutable.Specification
 
 class FormatDetectorTest extends Specification {
   "detect MOV when the ftyp box is 'mqt '" in {

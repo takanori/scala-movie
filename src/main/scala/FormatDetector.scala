@@ -107,7 +107,7 @@ class FormatDetector {
     val imageLength: Int = metadata.get("tiff:ImageLength").toInt
 
     val movieFormat = contentType match {
-      case "video/quicktime" => MovieFormat.MOV
+      case "video/quicktime" | "video/mov" => MovieFormat.MOV
       case "application/mp4" | "video/mp4" => MovieFormat.MP4
       case "3gpp" => MovieFormat.ThreeGP
       case _ => MovieFormat.Unknown
@@ -116,7 +116,7 @@ class FormatDetector {
     new MovieInformation(movieFormat, contentLength, imageWidth, imageLength)
   }
 
-  def testDetection(path: String) = {
+  def PrintDetectionResult(path: String) = {
     val movieBuffer = parseFile(path)
     val result = detectMovieInformation(movieBuffer)
     println(result.format)

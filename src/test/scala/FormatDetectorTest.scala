@@ -12,23 +12,19 @@ import org.specs2.mutable.{Specification, SpecificationWithJUnit}
 class FormatDetectorTest extends Specification {
 
   "detectMovieInformation" should{
-    "detect MP4" in{
+    "detect MOV" in{
 
-//      val formatDetector = new FormatDetector;FormatDetector
-//
-//      val path = "/Users/mbp20120411/scala_files/movies/IMG_0467.MOV"
-//      val movieBuffer = formatDetector.parseFile(path)
-//
-//      //formatDetector.detectFormat(Array[Byte](0x11,0x12)) must_== MovieFormat.MP4
-//      formatDetector.detectFormat(movieBuffer).toString == "MOV"
-      "Hello world" must have size(11)
+      val formatDetector = new FormatDetector;
+      val path = "/Users/mbp20120411/scala_files/movies/IMG_0467.MOV"
+      val movieBuffer = formatDetector.parseFile(path)
+
+      //formatDetector.detectFormat(Array[Byte](0x11,0x12)) must_== MovieFormat.MP4
+      formatDetector.detectFormat(movieBuffer) must_==  MovieFormat.MOV
     }
-//    "fail to detect" in{
-//
-//      val formatDetector = new FormatDetector;
-//      formatDetector.detectFormat(Array[Byte](0x11,0x12)) must_== MovieFormat.Unknown
-//
-//    }
+    "start with 'Hello'" in {
+      "Hello world" must startWith("Hello")
+    }
+
   }
 
 

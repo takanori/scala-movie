@@ -107,6 +107,10 @@ public class MP4Parser extends AbstractParser {
         typesMap.put(MediaType.video("x-m4v"), Arrays.asList(
                 "M4V ", "M4VH", "M4VP"));
 
+        // added a new type to detect MOV
+        typesMap.put(MediaType.video("mov"), Arrays.asList(
+                "qt  ", "mqt "));
+
         typesMap.put(MediaType.video("quicktime"), Collections.<String>emptyList());
         typesMap.put(MediaType.application("mp4"), Collections.<String>emptyList());
     }

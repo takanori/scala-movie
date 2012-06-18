@@ -192,7 +192,6 @@ public class MP4Parser extends AbstractParser {
 
             // Get the duration
             double durationSeconds = ((double)mHeader.getDuration()) / mHeader.getTimescale();
-
             metadata.set(Metadata.CONTENT_LENGTH, Double.toString(durationSeconds));
 
             // The timescale is normally the sampling rate

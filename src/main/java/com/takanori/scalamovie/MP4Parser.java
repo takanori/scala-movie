@@ -218,11 +218,7 @@ public class MP4Parser extends AbstractParser {
             );
 
             // Get the video with and height
-//            metadata.set(Metadata.IMAGE_WIDTH,  (int)header.getWidth());
             metadata.set(Metadata.IMAGE_WIDTH,  (int)header.getWidth());
-            System.out.println(header);
-
-
             metadata.set(Metadata.IMAGE_LENGTH, (int)header.getHeight());
 
             // Get the sample information

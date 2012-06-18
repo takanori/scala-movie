@@ -101,10 +101,6 @@ class FormatDetector {
       stream.close
     }
 
-    // debugging
-    println(metadata)
-
-
     val contentType: String = metadata.get("Content-Type")
     val contentLength: Float = metadata.get("Content-Length").toFloat
     val imageWidth: Int = metadata.get("tiff:ImageWidth").toInt
@@ -119,14 +115,4 @@ class FormatDetector {
 
     new MovieInformation(movieFormat, contentLength, imageWidth, imageLength)
   }
-
-  def PrintDetectionResult(path: String) = {
-    val movieBuffer = parseFile(path)
-    val result = detectMovieInformation(movieBuffer)
-    println(result.format)
-    println(result.playTime)
-    println(result.width)
-    println(result.height)
-  }
-
 }

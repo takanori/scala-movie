@@ -101,6 +101,10 @@ class FormatDetector {
       stream.close
     }
 
+    // debugging
+    println(metadata)
+
+
     val contentType: String = metadata.get("Content-Type")
     val contentLength: Float = metadata.get("Content-Length").toFloat
     val imageWidth: Int = metadata.get("tiff:ImageWidth").toInt
@@ -109,7 +113,7 @@ class FormatDetector {
     val movieFormat = contentType match {
       case "video/quicktime" | "video/mov" => MovieFormat.MOV
       case "application/mp4" | "video/mp4" => MovieFormat.MP4
-      case "3gpp" => MovieFormat.ThreeGP
+      case "video/3gpp" | "video/3gpp2" => MovieFormat.ThreeGP
       case _ => MovieFormat.Unknown
     }
 

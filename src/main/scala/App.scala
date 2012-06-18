@@ -8,11 +8,16 @@ object App {
 
   def main(args: Array[String]) {
 //    val path = "src/test/resources/mov_h264_aac.mov"
-    val path = "src/test/resources/sample_mpeg4.mp4"
-//    val path = "src/test/resources/sample_iTunes.mov"
+//    val path = "../sample-movies/sample_mpeg4.mp4"
+    val path = "../sample-movies/sample.3gp"
 
     val formatDetector = new FormatDetector;
     val movieBuffer = formatDetector.parseFile(path)
+
+    val simpleFormat = formatDetector.detectFormat(movieBuffer)
+
+    println(simpleFormat)
+
     val information = formatDetector.detectMovieInformation(movieBuffer)
 
     val format = information.format

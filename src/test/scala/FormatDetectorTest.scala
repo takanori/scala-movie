@@ -1,5 +1,5 @@
 /**
- * FormatDetectorTest.scalas
+ * FormatDetectorTest.scala
  */
 
 import com.takanori.MovieUtils.{MovieFormat, FormatDetector}
